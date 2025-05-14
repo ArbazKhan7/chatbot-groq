@@ -5,6 +5,9 @@ from langchain_community.llms import  Ollama
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 import os
+
+load_dotenv()
+groq_api_key = os.getenv('GROQ_API_KEY')
 #Prompt Template
 
 prompts= ChatPromptTemplate.from_messages(
@@ -23,8 +26,7 @@ input_text=st.text_input("Search the topic u want")
 
 #llm = Ollama(model="llama2")
 #Groq LLM API
-load_dotenv()
-groq_api_key = os.getenv('GROQ_API_KEY')
+
 llm = ChatGroq(
     groq_api_key=groq_api_key,
     model_name="Llama3-8b-8192"
